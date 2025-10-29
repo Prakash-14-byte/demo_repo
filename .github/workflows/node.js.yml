@@ -20,9 +20,16 @@ jobs:
 
       - name: Deploy Backend on Staging
         run: |
+          # Ensure backend directory exists
+          sudo mkdir -p /home/ubuntu/backend
+          sudo chown -R ubuntu:ubuntu /home/ubuntu/backend
           cd /home/ubuntu/backend
+
+          # Copy new files
           sudo rm -rf *
           sudo cp -r $GITHUB_WORKSPACE/* .
+
+          # Install dependencies and restart app
           npm install
           sudo pm2 delete demo_backend || true
           sudo pm2 start server.js --name demo_backend
@@ -43,9 +50,16 @@ jobs:
 
       - name: Deploy Backend on Production
         run: |
+          # Ensure backend directory exists
+          sudo mkdir -p /home/ubuntu/backend
+          sudo chown -R ubuntu:ubuntu /home/ubuntu/backend
           cd /home/ubuntu/backend
+
+          # Copy new files
           sudo rm -rf *
           sudo cp -r $GITHUB_WORKSPACE/* .
+
+          # Install dependencies and restart app
           npm install
           sudo pm2 delete demo_backend || true
           sudo pm2 start server.js --name demo_backend
