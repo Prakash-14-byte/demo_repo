@@ -23,7 +23,7 @@ db.connect(err => {
 });
 
 app.get('/', (req, res) => {
-  res.send('🧪 Updated from GitHub! Staging Auto-Deploy Working 🚀');
+  res.send('🧪 Updated from GitHub! Staging Auto-Deploy Working 🚀 and production works by the manually triggers');
 }); 
 
 app.listen(PORT, () => {
