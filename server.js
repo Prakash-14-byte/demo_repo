@@ -24,7 +24,7 @@ db.connect(err => {
 
 app.get('/', (req, res) => {
   res.send('🧪 Updated from GitHub! Staging Auto-Deploy Working 🚀');
-});
+}); 
 
 app.listen(PORT, () => {
   console.log(`✅ Server started on port ${PORT}`);
